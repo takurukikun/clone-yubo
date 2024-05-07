@@ -2,7 +2,15 @@ import { Text, View } from 'react-native';
 
 import { useSession } from '@/providers/auth';
 
-export default function Index() {
+export function CompTest() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>CompTest</Text>
+    </View>
+  );
+}
+
+export default function Home() {
   const { signOut } = useSession();
   return (
     <View
