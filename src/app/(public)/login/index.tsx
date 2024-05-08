@@ -1,4 +1,5 @@
 import { AntDesign } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import { Text, View } from 'react-native';
 
 import { Button } from '@/components/Button';
@@ -6,6 +7,7 @@ import { useSession } from '@/providers/auth';
 
 export default function SignIn() {
   const { signIn } = useSession();
+  const router = useRouter();
 
   return (
     <View className="flex-1 items-center justify-end px-4 py-12">
@@ -33,10 +35,7 @@ export default function SignIn() {
       </Text>
       <Button
         variant="destructive"
-        onPress={() =>
-          // setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')
-          signIn()
-        }
+        onPress={() => router.push('/register')}
         label="Entrar"
         className="w-full rounded-full bg-black py-4"
         labelClasses="text-white text-center font-bold text-lg"
