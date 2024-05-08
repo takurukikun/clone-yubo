@@ -1,35 +1,22 @@
+import { useColorScheme } from 'nativewind';
 import { Text, View } from 'react-native';
 
 import { useSession } from '@/providers/auth';
 
-export function CompTest() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>CompTest</Text>
-    </View>
-  );
-}
-
 export default function Home() {
   const { signOut } = useSession();
+  const { colorScheme, setColorScheme } = useColorScheme();
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <View className="flex-1 items-center justify-center rounded-md px-4 py-2">
       <Text
-        onPress={() => {
-          // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.
-          signOut();
-        }}
-        style={{
-          color: '#f00',
-        }}
+        onPress={
+          // () => setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')
+          () => signOut()
+        }
+        className="bg-blue-500 px-4 py-2"
       >
-        Sign Out
+        Singout
       </Text>
     </View>
   );

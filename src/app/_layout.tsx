@@ -11,7 +11,7 @@ import { useColorScheme } from 'nativewind';
 import { useEffect } from 'react';
 
 import { SessionProvider } from '@/providers/auth';
-import '../../global.css';
+import '../assets/styles/global.css';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -46,8 +46,7 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const { setColorScheme, colorScheme } = useColorScheme();
-  setColorScheme('dark');
+  const { colorScheme } = useColorScheme();
 
   return (
     <SessionProvider>
